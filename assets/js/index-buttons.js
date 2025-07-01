@@ -1,3 +1,7 @@
+// Set landing page background
+setBackground('index');
+window.currentSceneName = 'index';
+
 // Buttons
 const newGameBtn = document.getElementById('newGameBtn');
 const continueGameBtn = document.getElementById('continueGameBtn');
