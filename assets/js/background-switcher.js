@@ -1,14 +1,12 @@
-// Set paths to portrait and landscape background images
-const portraitBg = 'assets/images/index-portrait.png';
-const landscapeBg = 'assets/images/index-landscape.png';
-
-// Keep track of the current image to avoid unnecessary updates
+// Keep track of the current image
 let currentBg = '';
 
-// Function to check screen shape and set the correct background
-function setLandingBackground() {
+// Function to set the background based on the current scene
+function setBackground(imageBaseName) {
+    if (!imageBaseName) return;
+
     const isPortrait = window.innerHeight > window.innerWidth;
-    const newBg = isPortrait ? portraitBg : landscapeBg;
+    const newBg = `assets/images/${imageBaseName}-${isPortrait ? 'portrait' : 'landscape'}.png`;
 
     if (newBg !== currentBg) {
         document.body.style.backgroundImage = `url('${newBg}')`;
@@ -16,8 +14,9 @@ function setLandingBackground() {
     }
 }
 
-// Run this function when the page loads
-window.addEventListener('DOMContentLoaded', setLandingBackground);
-
-// Run it again if the screen size changes
-window.addEventListener('resize', setLandingBackground);
+// Auto-update background on screen resize
+window.addEventListener('resize', () => {
+    if (window.currentSceneName) {
+        setBackground(window.currentSceneName);
+    }
+});
