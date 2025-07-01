@@ -14,19 +14,20 @@ body {
     /* transition: background-image 0.5s ease-in-out; */
 }
 
-h1 {
+h1,
+#game-header {
     font-family: 'Special Elite', monospace;
     color: #522D17 !important;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
-.overlay {
-    background-color: rgba(255, 255, 255, 0.5);
-    max-width: 600px;
-    width: 90%;
+#game-text {
+    font-family: 'Lato', sans-serif;
+    color: #0B0201;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
-/* Landing Page */
 .btns {
     color: #cecece;
     font-family: 'Lato', sans-serif;
@@ -42,8 +43,18 @@ h1 {
     background-color: #563457;
 }
 
+.overlay {
+    background-color: rgba(255, 255, 255, 0.5);
+    max-width: 750px;
+    width: 90%;
+}
+
 @media (max-width: 576px) {
     .btns {
         font-size: 1rem;
+    }
+
+    #game-text {
+    font-size: 1rem;
     }
 }
