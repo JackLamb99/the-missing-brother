@@ -7,7 +7,7 @@ function showCharacterCreation() {
     document.getElementById('game-text').innerHTML = `
         <p>Before we begin, you need to give your character a name and pick their pronouns. These choices will be 
         used throughout the game for a more immersive experience.</p>
-        <input type="text" id="playerName" class="form-control mb-3" placeholder="Enter your character's name" maxlength="20" />
+        <input type="text" id="playerName" class="form-control mb-3" placeholder="Enter your character's name" maxlength="30" />
     `;
 
     // Clear any existing buttons
