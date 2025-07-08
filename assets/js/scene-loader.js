@@ -1,11 +1,17 @@
 function loadScene(sceneName) {
+    // Call refreshFlags function before rendering scene
+    refreshFlags();
+
+    // Log current flag states for debugging
+    logFlagStates();
+
     const scene = scenes[sceneName];
         if (!scene) {
             console.error(`Scene "${sceneName}" not found.`);
             return;
     }
 
-    // Save the scene name to memory for background-switcher etc.
+    // Save the scene name to memory for background-switcher
     window.currentSceneName = sceneName;
 
     // Apply background image
@@ -35,10 +41,12 @@ function loadScene(sceneName) {
     const choicesContainer = document.getElementById('game-choices');
     choicesContainer.innerHTML = ''; // Clear old choices
 
-    scene.choices.forEach(choice => {
+    const resolvedChoices = typeof scene.choices === 'function' ? scene.choices() : scene.choices;
+
+    resolvedChoices.forEach(choice => {
         const button = document.createElement('button');
         button.classList.add('btns');
-        button.innerText = choice.text;
+        button.innerHTML = choice.text;
         if (choice.action) {
             // Run a custom action
             button.addEventListener('click', choice.action);
@@ -47,7 +55,10 @@ function loadScene(sceneName) {
                 // Set any flags this choice defines
                 if (choice.setFlags) {
                     for (const [key, value] of Object.entries(choice.setFlags)) {
-                        localStorage.setItem(key, value);
+                        localStorage.setItem(key, JSON.stringify(value));
+                    }
+                    if (typeof refreshFlags === 'function') {
+                        refreshFlags(); // Update the global flags object immediately
                     }
                 }
                 // Load the next scene
