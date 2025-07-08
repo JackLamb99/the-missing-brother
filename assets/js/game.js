@@ -1,4 +1,7 @@
 function showCharacterCreation() {
+    // Set background
+    setBackground('character');
+    
     // Set header and text
     document.getElementById('game-header').textContent = "Who are you?";
     document.getElementById('game-text').innerHTML = `
@@ -30,12 +33,20 @@ function showCharacterCreation() {
 
 function setPronouns(type) {
     const nameInput = document.getElementById('playerName');
-    const name = nameInput ? nameInput.value.trim() : '';
+    let name = nameInput ? nameInput.value.trim() : '';
 
     if (!name) {
         alert("Please enter your name before selecting a pronoun.");
         return;
     }
+
+    // Normalise Name - Capitalise each word, remove extra spaces
+    name = name
+        .toLowerCase()
+        .split(' ')
+        .filter(word => word.length > 0)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 
     const pronounMap = {
         masc: {
@@ -47,7 +58,7 @@ function setPronouns(type) {
         fem: {
             pronounSubject: 'she',
             pronounObject: 'her',
-            pronounPossessive: 'hers',
+            pronounPossessive: 'her',
             pronounReflexive: 'herself'
         },
         neutral: {
@@ -61,24 +72,25 @@ function setPronouns(type) {
     const pronouns = pronounMap[type];
 
     // Save all to localStorage
-    localStorage.setItem('missingBrotherSave', JSON.stringify({
-        name: name,
-        ...pronouns,
-        currentScene: 'prologue'
-    }));
+    localStorage.setItem('playerName', name);
+    localStorage.setItem('pronounSubject', pronouns.pronounSubject);
+    localStorage.setItem('pronounObject', pronouns.pronounObject);
+    localStorage.setItem('pronounPossessive', pronouns.pronounPossessive);
+    localStorage.setItem('pronounReflexive', pronouns.pronounReflexive);
+    localStorage.setItem('currentScene', 'prologue');
 
     // Start the game
     loadScene('prologue');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const save = JSON.parse(localStorage.getItem('missingBrotherSave'));
+    const name = localStorage.getItem('playerName');
+    const pronounSubject = localStorage.getItem('pronounSubject');
+    const currentScene = localStorage.getItem('currentScene');
 
-    if (!save || !save.name || !save.pronounSubject) {
-        // No valid save – start character creation
+    if (!name || !pronounSubject) {
         showCharacterCreation();
     } else {
-        // Valid save found – load saved scene
-        loadScene(save.currentScene || 'prologue');
+        loadScene(currentScene);
     }
 });
