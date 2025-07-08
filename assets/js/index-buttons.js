@@ -21,6 +21,7 @@ newGameBtn.addEventListener('click', () => {
 confirmNewGameBtn.addEventListener('click', () => {
     resetGameData(); // Clear any existing save data
     window.location.href = 'game.html'; // Redirect to game page
+    confirmNewGameModal.hide(); // Hide confirmation modal
 });
 
 // Event - "Continue Game" clicked
@@ -33,8 +34,9 @@ continueGameBtn.addEventListener('click', () => {
     }
 });
 
-// Event - Start new game from "no save" modal
+// Event - Start new game from 'no save' modal
 startNewGameFromNoSave.addEventListener('click', () => {
     resetGameData(); // Clear any existing save data
     window.location.href = 'game.html'; // Redirect to game page
+    noSaveModal.hide(); // Hide 'no save' modal
 });
