@@ -49,6 +49,10 @@ h1,
     width: 90%;
 }
 
+.fa-rotate-left {
+    color: #ff0000;
+}
+
 @media (max-width: 576px) {
     .btns {
         font-size: 1rem;
