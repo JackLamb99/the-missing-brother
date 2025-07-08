@@ -19,14 +19,14 @@ newGameBtn.addEventListener('click', () => {
 
 // Event - Confirm start new game
 confirmNewGameBtn.addEventListener('click', () => {
-    localStorage.removeItem('missingBrotherSave'); // Clear any existing save data
+    resetGameData(); // Clear any existing save data
     window.location.href = 'game.html'; // Redirect to game page
 });
 
 // Event - "Continue Game" clicked
 continueGameBtn.addEventListener('click', () => {
-    const save = localStorage.getItem('missingBrotherSave');
-    if (save) {
+    const hasSave = localStorage.getItem('currentScene') && localStorage.getItem('playerName');
+    if (hasSave) {
         window.location.href = 'game.html'; // Redirect to game page if save exists
     } else {
         noSaveModal.show(); // Show modal if no save found
@@ -35,6 +35,6 @@ continueGameBtn.addEventListener('click', () => {
 
 // Event - Start new game from "no save" modal
 startNewGameFromNoSave.addEventListener('click', () => {
-    localStorage.removeItem('missingBrotherSave'); // Clear any existing save data
+    resetGameData(); // Clear any existing save data
     window.location.href = 'game.html'; // Redirect to game page
 });
