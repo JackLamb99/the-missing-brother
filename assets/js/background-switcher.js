@@ -16,7 +16,8 @@ function setBackground(imageBaseName) {
 
 // Auto-update background on screen resize
 window.addEventListener('resize', () => {
-    if (window.currentSceneName) {
-        setBackground(window.currentSceneName);
+    if (window.currentSceneName && scenes[window.currentSceneName]) {
+        const backgroundKey = scenes[window.currentSceneName].background;
+        setBackground(backgroundKey);
     }
 });
