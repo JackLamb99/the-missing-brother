@@ -42,5 +42,5 @@ window.rollDiceCheck = async (targetTotal, onSuccessScene, onFailScene) => {
         } else {
             loadScene(onFailScene);
         }
-    }, 3000);
+    }, 1500);
 };
