@@ -10,11 +10,13 @@ const flagKeys = [
     'pronounReflexive',
     // Evidence flags
     'hasEvidence1',
+    'hasEvidence2',
     // Clue flags
     'hasBetslipClue',
     // Item flags
     'hasFlatKeyItem',
     'hasBankNotesItem',
+    'hasKnifeItem',
     // Location flags
     'visitedFlat',
     'visitedDock',
@@ -23,7 +25,11 @@ const flagKeys = [
     'flatDeskSearched',
     'flatWardrobeSearched',
     'flatKitchenSearched',
-    'flatFloorboardSearched'
+    'flatFloorboardSearched',
+    'dockMotorboatSearched',
+    'dockContainerSearched',
+    'dockPalletsSearched',
+    'dockTugboatSearched',
 ];
 
 // Load all flag values into a global 'flags' object
