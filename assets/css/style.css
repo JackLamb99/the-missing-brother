@@ -44,13 +44,26 @@ h1,
 }
 
 .overlay {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.75);
     max-width: 750px;
     width: 90%;
 }
 
-.fa-rotate-left {
+/* Icons */
+.can-return {
+    color: #00ff00;
+}
+
+.no-return {
     color: #ff0000;
+}
+
+.low-risk {
+    color: #00bfff;
+}
+
+.high-risk {
+    color: #ff4500;
 }
 
 /* Dice Box styling */
