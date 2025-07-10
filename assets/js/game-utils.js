@@ -13,6 +13,8 @@ const flagKeys = [
     'hasEvidence2',
     // Clue flags
     'hasBetslipClue',
+    'hasOverheardClue',
+    'hasDetectiveClue',
     // Item flags
     'hasFlatKeyItem',
     'hasBankNotesItem',
@@ -30,6 +32,8 @@ const flagKeys = [
     'dockContainerSearched',
     'dockPalletsSearched',
     'dockTugboatSearched',
+    // Miscellaneous flags
+    'pubCanReturn'
 ];
 
 // Load all flag values into a global 'flags' object
