@@ -24,6 +24,15 @@ confirmNewGameBtn.addEventListener('click', () => {
     confirmNewGameModal.hide(); // Hide confirmation modal
 });
 
+// Event - Confirm start new game
+confirmNewGameBtn.addEventListener('click', () => {
+    confirmNewGameModal.hide(); // Hide 'confirm new game' modal
+    setTimeout(() => {
+        resetGameData(); // Clear any existing save data
+        window.location.href = 'game.html'; // Redirect to game page
+    }, 100); // Delay to allow Bootstrap to finish hiding modal
+});
+
 // Event - "Continue Game" clicked
 continueGameBtn.addEventListener('click', () => {
     const hasSave = localStorage.getItem('currentScene') && localStorage.getItem('playerName');
@@ -36,7 +45,9 @@ continueGameBtn.addEventListener('click', () => {
 
 // Event - Start new game from 'no save' modal
 startNewGameFromNoSave.addEventListener('click', () => {
-    resetGameData(); // Clear any existing save data
-    window.location.href = 'game.html'; // Redirect to game page
     noSaveModal.hide(); // Hide 'no save' modal
+    setTimeout(() => {
+        resetGameData(); // Clear any existing save data
+        window.location.href = 'game.html'; // Redirect to game page
+    }, 100); // Delay to allow Bootstrap to finish hiding modal
 });
