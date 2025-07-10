@@ -1,8 +1,20 @@
+/**
+ * Scene Loader Module
+ * Handles loading and rendering game scenes based on the current state.
+ * This module is responsible for:
+ * - Loading scenes by name
+ * - Setting the background image
+ * - Updating the game header and text
+ * - Generating choice buttons
+ */
 function loadScene(sceneName) {
+    // Reset scroll position to top
+    window.scrollTo(0, 0);
+    
     // Call refreshFlags function before rendering scene
     refreshFlags();
 
-    // Log current flag states for debugging
+    // Log current flag states for debugging (remove later)
     logFlagStates();
 
     const scene = scenes[sceneName];
