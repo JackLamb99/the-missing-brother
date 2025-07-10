@@ -1,3 +1,10 @@
+/**
+ * Displays the character creation screen.
+ * Sets the background image, updates the game header and introductory text, and presents a name input field alongside pronoun 
+ * selection buttons.
+ * The selected pronouns are handled by the setPronouns() function.
+ * This function is used at the start of the game to personalise the experience.
+ */
 function showCharacterCreation() {
     // Set background
     setBackground('character');
@@ -31,6 +38,16 @@ function showCharacterCreation() {
     });
 }
 
+/**
+ * Sets the player's name and pronouns, then begins the game.
+ * Retrieves the name from the input field, normalises its formatting, and assigns pronoun values based on the selected type 
+ * ('masc', 'fem', or 'neutral').
+ * All values are saved to localStorage for use throughout the game.
+ * If the name is missing, alerts the user to enter one.
+ * Finally, the game begins by loading the 'prologue' scene.
+ * 
+ * @param {string} type - The selected pronoun type ('masc', 'fem', or 'neutral').
+ */
 function setPronouns(type) {
     const nameInput = document.getElementById('playerName');
     let name = nameInput ? nameInput.value.trim() : '';

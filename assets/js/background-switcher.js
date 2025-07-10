@@ -2,8 +2,11 @@
 let currentBg = '';
 
 /**
- * Sets the background image based on the provided image base name.
- * The image is selected based on the current orientation (portrait or landscape).
+ * Sets the background image of the page based on the provided base name and the current screen orientation (portrait or 
+ * landscape).
+ * The function constructs the file path dynamically and avoids unnecessary updates if the background hasn't changed.
+ * 
+ * @param {string} imageBaseName - The base name of the image file (without orientation suffix).
  */
 function setBackground(imageBaseName) {
     if (!imageBaseName) return;
