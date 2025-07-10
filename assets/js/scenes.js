@@ -39,8 +39,7 @@ const scenes = {
             she might change her mind. Then, without a word, she crosses the room and stands in front of the desk.</p>
             <p>"You're ${name}, yes?" she says, almost as if confirming a rumour. "My brother Thomas is missing, has been for 
             weeks. A friend said you might be able to help me..."</p>
-            <p>Her voice wavers, but her eyes don't. She places a folded photograph of Thomas on the desk, along with five £1 
-            banknotes, more than enough to prove she's serious.</p>
+            <p>Her voice wavers, but her eyes don't. She places a photograph of Thomas on the desk.</p>
         `,
         choices: [
             {
@@ -128,9 +127,13 @@ const scenes = {
                 text: `Investigate the Execution Dock`,
                 next: 'dockIntro'
             }),
-            ...conditionalChoice(!flags.visitedPub, {
+            ...conditionalChoice(!flags.visitedPub && !flags.pubCanReturn, {
                 text: `Visit The Tin Whistle pub`,
-                next: 'tinWhistleIntro'
+                next: 'pubIntro'
+            }),
+            ...conditionalChoice(!flags.visitedPub && flags.pubCanReturn, {
+                text: `Return to The Tin Whistle pub`,
+                next: 'pubReturnToRowley'
             }),
             {
                 text: `Continue to Chapter 2 <i class="fa-solid fa-rotate-left no-return"></i>`,
@@ -146,19 +149,19 @@ const scenes = {
             Thomas's Flat`,
         text: ({name}) => conditionalText(
             flags.flatDeskSearched || flags.flatWardrobeSearched || flags.flatKitchenSearched || flags.flatFloorboardSearched,
-                `
-                    <p>${name} wonders if there's more to find or if continuing the search is a waste of time.</p>
-                `,
-                `
-                    <p>The flat is tucked into the top floor of a crumbling tenement in Wapping. The hallway stinks of mildew 
-                    and coal smoke. A rusted lock gives way with Evelyn's key, and the door groans open into a dimly lit 
-                    space.</p>
-                    <p>A single bulb swings gently above a room in disarray, the signs of a man who left in a hurry. Clothes 
-                    half-folded, papers scattered, ashtrays full. On the desk sits a cracked radio tuned to static, and the 
-                    window is slightly ajar, letting in the sound of seagulls and distant sirens.</p>
-                    <p>${name} steps inside. Dust motes drift through the beam of light spilling from the window. Time to look 
-                    for anything Thomas left behind.</p>
-                `),
+            `
+                <p>${name} wonders if there's more to find or if continuing the search is a waste of time.</p>
+            `,
+            `
+                <p>The flat is tucked into the top floor of a crumbling tenement in Wapping. The hallway stinks of mildew and 
+                coal smoke. A rusted lock gives way with Evelyn's key, and the door groans open into a dimly lit space.</p>
+                <p>A single bulb swings gently above a room in disarray, the signs of a man who left in a hurry. Clothes 
+                half-folded, papers scattered, ashtrays full. On the desk sits a cracked radio tuned to static, and the 
+                window is slightly ajar, letting in the sound of seagulls and distant sirens.</p>
+                <p>${name} steps inside. Dust motes drift through the beam of light spilling from the window. Time to look 
+                for anything Thomas left behind.</p>
+            `
+        ),
         choices: () => [
             ...conditionalChoice(!flags.flatDeskSearched, {
                 text: `Search the desk drawers`,
@@ -279,18 +282,19 @@ const scenes = {
             The Execution Dock`,
         text: ({name}) => conditionalText(
             flags.dockMotorboatSearched || flags.dockContainerSearched || flags.dockPalletsSearched || flags.dockTugboatSearched,
-                `
-                    <p>${name} wonders if there's more to find or if continuing the search is a waste of time.</p>
-                `,
-                `
-                    <p>The water at Execution Dock is slick with oil and secrets. Once the site of public hangings for pirates 
-                    and smugglers, it's now a crumbling husk of rusted cranes, abandoned barges, and splintered decking. The 
-                    fog rolls thick along the Thames, blurring the line between the river and the underworld.</p>
-                    <p>${name} steps quietly onto the dock, boots creaking on old wood. Somewhere below, water laps against 
-                    concrete. A seagull cries overhead, then nothing, just silence and the faint scent of diesel, blood, and 
-                    rope.</p>
-                    <p>This place isn't abandoned. Not really.</p>
-                `),
+            `
+                <p>${name} wonders if there's more to find or if continuing the search is a waste of time.</p>
+            `,
+            `
+                <p>The water at Execution Dock is slick with oil and secrets. Once the site of public hangings for pirates 
+                and smugglers, it's now a crumbling husk of rusted cranes, abandoned barges, and splintered decking. The fog 
+                rolls thick along the Thames, blurring the line between the river and the underworld.</p>
+                <p>${name} steps quietly onto the dock, boots creaking on old wood. Somewhere below, water laps against 
+                concrete. A seagull cries overhead, then nothing, just silence and the faint scent of diesel, blood, and 
+                rope.</p>
+                <p>This place isn't abandoned. Not really.</p>
+            `
+        ),
         choices: () => [
             ...conditionalChoice(!flags.dockMotorboatSearched, {
                 text: `Inspect the burned-out motorboat`,
@@ -665,5 +669,320 @@ const scenes = {
                 }
             }
         ]
+    },
+
+    // The Tin Whistle scenes
+    pubIntro: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: ({name}) => `
+            <p>The Tin Whistle doesn't look like much from the outside, just another soot-stained pub tucked between a 
+            butcher's and a boarded-up bakery. But inside, the walls sweat nicotine and the lighting turns everything a shade 
+            of yellow. A broken jukebox hums low from the corner, playing a warbled tune. Old men nurse a beer, heads down. 
+            Younger ones size up the newcomers. Behind the bar, a wiry barman with sleeves rolled up wipes glasses like they 
+            owe him money.</p>
+            <p>${name} steps in and approaches the bar, shaking off the drizzle. The stink of spilt beer and fried meat hits 
+            hard. This is the sort of place where secrets sit in stained upholstery and eye contact is a challenge.</p>
+        `,
+        choices: () => [
+            {
+                text: `"I'm looking for someone who knows things. Quiet things."`,
+                next: 'pubBarman'
+            },
+            {
+                text: `"You get many nervous types drinking alone here?"`,
+                next: 'pubBarman'
+            },
+            {
+                text: `"Any of your regulars act like they've got something to hide?"`,
+                next: 'pubBarman'
+            },
+            {
+                text: `Leave the pub <i class="fa-solid fa-rotate-left no-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {visitedPub: true}
+            }
+        ]
+    },
+
+    pubBarman: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: () => `
+            <p>The barkeep leans close and replies:</p>
+            <p>"You didn't hear it from me, but there's three over there who drink regular and keep their mouths shut. Ask the 
+            right one, you might learn something. Their names are..."</p>
+        `,
+        choices: [
+            {
+                text: `"Jimmy Haynes"`,
+                next: 'pubChoiceHaynes',
+            },
+            {
+                text: `"Sean Rowley"`,
+                next: 'pubChoiceRowley',
+            },
+            {
+                text: `"Colin Ward"`,
+                next: 'pubChoiceWard',
+            },
+            {
+                text: `Leave the pub <i class="fa-solid fa-rotate-left no-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {visitedPub: true}
+            }
+        ]
+    },
+
+    pubChoiceHaynes: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: ({name}) => `
+            <p>${name} sits down with Haynes and says:</p>
+            <p>"I've got a couple questions for you, about a friend named Thomas Blackwood."</p>
+            <p>Haynes looks up from his beer with a dismissive look on his face and replies:</p>
+            <p>"Never heard of him, and this isn't the place to be asking too many questions"</p>
+            <p><em>This is your second chance, you won't get a third...</em></p>
+        `,
+        choices: [
+            {
+                text: `Talk to Sean Rowley`,
+                next: 'pubChoiceRowley',
+            },
+            {
+                text: `Talk to Colin Ward`,
+                next: 'pubSecondChoiceWard',
+            },
+            {
+                text: `Leave the pub <i class="fa-solid fa-rotate-left no-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {visitedPub: true}
+            }
+        ]
+    },
+
+    pubChoiceWard: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: ({name}) => `
+            <p>${name} sits down with Ward and says:</p>
+            <p>"I've got a couple questions for you, about a friend named Thomas Blackwood."</p>
+            <p>Ward looks up from his beer with a dismissive look on his face and replies:</p>
+            <p>"Never heard of him, and this isn't the place to be asking too many questions"</p>
+            <p><em>This is your second chance, you won't get a third...</em></p>
+        `,
+        choices: [
+            {
+                text: `Talk to Jimmy Haynes`,
+                next: 'pubSecondChoiceHaynes',
+            },
+            {
+                text: `Talk to Sean Rowley`,
+                next: 'pubChoiceRowley',
+            },
+            {
+                text: `Leave the pub <i class="fa-solid fa-rotate-left no-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {visitedPub: true}
+            }
+        ]
+    },
+
+    pubSecondChoiceWard: {
+        background: 'pub',
+        header: `GAME OVER!`,
+        text: ({name}) => `
+            <p>${name} sits down with Ward and says again:</p>
+            <p>"I've got a couple questions for you, about a friend named Thomas Blackwood."</p>
+            <p>Haynes storms over from his table, glass in hand, and slams it into ${name}'s temple, angrily yelling:</p>
+            <p>"I already told you this wasn't the place to be asking questions!"</p>
+            <p>${name}'s unconcious body is dragged outside and dumped in an alley behind the pub.</p>
+        `,
+        choices: [
+            {
+                text: `Back to Main Menu`,
+                action: () => {
+                    resetGameData();
+                    window.location.href = 'index.html';
+                }
+            }
+        ]
+    },
+
+    pubSecondChoiceHaynes: {
+        background: 'pub',
+        header: `GAME OVER!`,
+        text: ({name}) => `
+            <p>${name} sits down with Haynes and says again:</p>
+            <p>"I've got a couple questions for you, about a friend named Thomas Blackwood."</p>
+            <p>Ward storms over from his table, glass in hand, and slams it into ${name}'s temple, angrily yelling:</p>
+            <p>"I already told you this wasn't the place to be asking questions!"</p>
+            <p>${name}'s unconcious body is dragged outside and dumped in an alley behind the pub.</p>
+        `,
+        choices: [
+            {
+                text: `Back to Main Menu`,
+                action: () => {
+                    resetGameData();
+                    window.location.href = 'index.html';
+                }
+            }
+        ]
+    },
+
+    pubChoiceRowley: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: ({name}) => `
+            <p>${name} sits down with Rowley and says:</p>
+            <p>"I've got a couple questions for you, about a friend named Thomas Blackwood"</p>
+            <p>The twitchy man looks up from his beer, with a sly whisper he replies:</p>
+            <p>"I'm sure I could be convinced to talk, for a price of course"</p>
+        `,
+        choices: () => [
+            ...conditionalChoice(flags.hasBankNotesItem, {
+                text: `Bribe him <i class="fa-solid fa-screwdriver-wrench"></i>`,
+                next: 'pubBribeSuccess'
+            }),
+            ...conditionalChoice(!flags.hasBankNotesItem, {
+                text: `Bribe him <i class="fa-solid fa-screwdriver-wrench"></i>`,
+                next: 'pubBribeFail'
+            }),
+            ...conditionalChoice(flags.hasKnifeItem, {
+                text: `Threaten him <i class="fa-solid fa-screwdriver-wrench"></i>`,
+                next: 'pubThreatSuccess'
+            }),
+            ...conditionalChoice(!flags.hasKnifeItem, {
+                text: `Threaten him <i class="fa-solid fa-screwdriver-wrench"></i>`,
+                next: 'pubThreatFail'
+            }),
+            {
+                text: `"I'll be back, don't you go anywhere." <i class="fa-solid fa-rotate-left can-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {pubCanReturn: true}
+            }
+        ]
+    },
+
+    pubReturnToRowley: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: ({name}) => `
+            <p>${name} sits back down with Rowley as he drains the last dregs of his beer and mutters:</p>
+            <p>"I'm still willing to talk, but it's still going to cost you."</p>
+        `,
+        choices: () => [
+            ...conditionalChoice(flags.hasBankNotesItem, {
+                text: `Bribe him <i class="fa-solid fa-screwdriver-wrench"></i>`,
+                next: 'pubBribeSuccess'
+            }),
+            ...conditionalChoice(!flags.hasBankNotesItem, {
+                text: `Bribe him <i class="fa-solid fa-screwdriver-wrench"></i>`,
+                next: 'pubBribeFail'
+            }),
+            ...conditionalChoice(flags.hasKnifeItem, {
+                text: `Threaten him <i class="fa-solid fa-screwdriver-wrench"></i>`,
+                next: 'pubThreatSuccess'
+            }),
+            ...conditionalChoice(!flags.hasKnifeItem, {
+                text: `Threaten him <i class="fa-solid fa-screwdriver-wrench"></i>`,
+                next: 'pubThreatFail'
+            }),
+            {
+                text: `Leave the pub <i class="fa-solid fa-rotate-left no-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {visitedPub: true}
+            }
+        ]
+    },
+
+    pubBribeSuccess: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: ({name, pronounSubject}) => `
+            <p><em>Bribe successful!</em></p>
+            <p>${name} produces the stack of notes ${pronounSubject} found in Thomas's flat and waves it under the wirey man's 
+            nose. Rowley pockets cash, leans in close and whispers:</p>
+            <p>"Look, I haven't seen Thomas in a while, but I overheard something last week, some lads talking about 'trigger 
+            points' or something. No idea what it meant, but I know they weren't talking about a massage. Also, there's this 
+            copper, name's Detective Inspector Fallon. He's stationed down in Rotherhithe, but shows up here sometimes, and no 
+            one touches him, like he's protected."</p>
+        `,
+        choices: [
+            {
+                text: `Leave the pub <i class="fa-solid fa-rotate-left no-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {hasOverheardClue: true, hasDetectiveClue: true, visitedPub: true}
+            }
+        ]
+    },
+
+    pubBribeFail: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: () => `
+            <p><em>Bribe failed.</em></p>
+            <p>Rowley sneers and says:</p>
+            <p>"You don't seem to have anything worth my time. I think it's best you don't show your face here again."</p>
+        `,
+        choices: [
+            {
+                text: `Leave the pub <i class="fa-solid fa-rotate-left no-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {visitedPub: true}
+            }
+        ]
+    },
+
+    pubThreatSuccess: {
+        background: 'pub',
+        header: `CHAPTER ONE
+            The Tin Whistle`,
+        text: ({name, pronounSubject}) => `
+            <p><em>Threat successful!</em></p>
+            <p>${name} produces the switch-blade ${pronounSubject} took from the man at the dock and waves it under the wirey 
+            man's nose. Rowley's eyes widen in fear as he stutters over his words:</p>
+            <p>"Alright alright, no need for all that. I haven't seen Thomas in a while, but I overheard something last week, 
+            some lads talking about 'trigger points' or something. No idea what it meant, but I know they weren't talking 
+            about a massage. Also, there's a copper, name's Detective Inspector Fallon. He's stationed down in Rotherhithe, 
+            but shows up here sometimes, and no one touches him, like he's protected."</p>
+        `,
+        choices: [
+            {
+                text: `Leave the pub <i class="fa-solid fa-rotate-left no-return"></i>`,
+                next: 'chapterOneStaging',
+                setFlags: {hasOverheardClue: true, hasDetectiveClue: true, visitedPub: true}
+            }
+        ]
+    },
+
+    pubThreatFail: {
+        background: 'pub',
+        header: `GAME OVER!`,
+        text: ({name}) => `
+            <p><em>Bribe failed.</em></p>
+            <p>${name} grabs the collar of Rowley's coat and tries to sound as treatening as possible:</p>
+            <p>"Tell me what you know about Thomas Blackwood, or else."</p>
+            <p>Rowley narrows his eyes and slams his pint glass into ${name}'s face, growling:</p>
+            <p>"You've got a big mouth for someone so empty-handed."</p>
+            <p>${name}'s unconcious body is dragged outside and dumped in an alley behind the pub.</p>
+        `,
+        choices: [
+            {
+                text: `Back to Main Menu`,
+                action: () => {
+                    resetGameData();
+                    window.location.href = 'index.html';
+                }
+            }
+        ]
     }
-};
+}
