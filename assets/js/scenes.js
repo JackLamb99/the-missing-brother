@@ -984,5 +984,24 @@ const scenes = {
                 }
             }
         ]
+    },
+
+    chapterTwoStaging: {
+        background: 'chap-two',
+        header: `CHAPTER TWO
+            To Be Continued...`,
+        text: ({name}) => `
+            <p>Thank you for playing Chapter One of <strong>The Missing Brother</strong>!</p>
+            <p>Chapter Two is currently in development, you will be able to continue ${name}'s journey soon.</p>
+        `,
+        choices: [
+            {
+                text: `Back to Main Menu`,
+                action: () => {
+                    resetGameData();
+                    window.location.href = 'index.html';
+                }
+            }
+        ]
     }
 }
