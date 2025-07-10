@@ -1,13 +1,10 @@
 /**
-Dice roll animation and logic powered by Fantastic Dice:
-https://fantasticdice.games/
-
-This file includes code adapted from the official Fantastic Dice documentation:
-https://fantasticdice.games/docs
-
-The library is open-source and used here under its open licence.
-Some logic and setup have been modified to integrate with the game's custom JavaScript structure.
-**/
+ * Dice roll animation and logic powered by Fantastic Dice: https://fantasticdice.games/
+ * Fantastic Dice is a JavaScript library for creating animated dice rolls in web applications.
+ * This file includes code adapted from the official Fantastic Dice documentation: https://fantasticdice.games/docs
+ * The library is open-source and used here under its open licence.
+ * Some logic and setup have been modified to integrate with the game's custom JavaScript structure.
+ */
 
 import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.1.3/dist/dice-box.es.min.js";
 
@@ -19,6 +16,14 @@ const diceBox = new DiceBox({
 });
 
 await diceBox.init();
+
+// Ensure the dice box canvas covers the entire viewport
+// This is necessary to ensure the dice roll animation is visible on mobile devices
+const canvas = document.querySelector(".dice-box-canvas");
+if (canvas) {
+    canvas.style.width = "100vw";
+    canvas.style.height = "100vh";
+}
 
 // Expose dice roll function globally
 window.rollDiceCheck = async (targetTotal, onSuccessScene, onFailScene) => {

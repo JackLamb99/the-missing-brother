@@ -93,11 +93,13 @@ h1,
     position: fixed !important;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
+    width: 100vw !important;
+    height: 100vh !important;
     z-index: 1000;
     pointer-events: none;
-    display: block;
+    display: block !important;
 }
 
 @media (max-width: 576px) {
