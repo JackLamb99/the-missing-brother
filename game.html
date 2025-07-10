@@ -37,12 +37,21 @@
             </div>
         </div>
 
-        <!-- Bootstrap Script -->
+        <!-- Bootstrap script -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Font Awesome Script -->
+        <!-- Font Awesome script -->
         <script src="https://kit.fontawesome.com/4472c95f66.js" crossorigin="anonymous"></script>
-        <!-- Custom Scripts -->
-        <script type="module" src="assets/js/dice-roll.js"></script>
+        <!-- Fantastic Dice - DiceBox library -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/@3d-dice/dice-box@1.0.5/dist/dice-box.es.min.js" type="module"></script> -->
+        <!-- Custom scripts -->
+        <script type="module">
+            import("./assets/js/dice-roll.esm.js").catch(() => {
+                const fallback = document.createElement("script");
+                fallback.src = "assets/js/dice-roll.fallback.js";
+                document.body.appendChild(fallback);
+            });
+        </script>
+        <!-- <script type="module" src="assets/js/dice-roll.js"></script> -->
         <script src="assets/js/background-switcher.js"></script>
         <script src="assets/js/game-utils.js"></script>
         <script src="assets/js/scenes.js"></script>
