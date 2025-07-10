@@ -9,7 +9,7 @@ function setBackground(imageBaseName) {
     if (!imageBaseName) return;
 
     const isPortrait = window.innerHeight > window.innerWidth;
-    const newBg = `assets/images/${imageBaseName}-${isPortrait ? 'portrait' : 'landscape'}.png`;
+    const newBg = `assets/images/${imageBaseName}-${isPortrait ? 'portrait' : 'landscape'}.webp`;
 
     if (newBg !== currentBg) {
         document.body.style.backgroundImage = `url('${newBg}')`;
