@@ -6,7 +6,7 @@
  * Some logic and setup have been modified to integrate with the game's custom JavaScript structure.
  */
 
-// import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.1.3/dist/dice-box.es.min.js";
+import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.1.3/dist/dice-box.es.min.js";
 
 const diceBox = new DiceBox({
     selector: "#dice-box",
