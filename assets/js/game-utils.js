@@ -43,7 +43,10 @@ flagKeys.forEach(key => {
     }
 });
 
-// Refresh flags during gameplay
+/**
+ * Refreshes the global flags object from localStorage.
+ * This is useful to ensure the flags object is up-to-date with any changes made to localStorage.
+ */
 function refreshFlags() {
     flagKeys.forEach(key => {
         const value = localStorage.getItem(key);
@@ -55,17 +58,26 @@ function refreshFlags() {
     });
 }
 
-// Create a conditional choice output for scenes
+/**
+ * Returns a choice object if the condition is true, otherwise returns an empty array.
+ * Adds the choice object to the choices array if the condition is met.
+ */
 function conditionalChoice(condition, choiceObj) {
     return condition ? [choiceObj] : [];
 }
 
-// Create a conditional text output for scenes
+/**
+ * Returns a text string based on the condition.
+ * If the condition is true, returns textFirst; otherwise returns textSecond.
+ */
 function conditionalText (condition, textFirst, textSecond) {
     return condition ? textFirst : textSecond;
 }
 
-// Reset all saved game data
+/**
+ * Resets all game data stored in localStorage.
+ * Based on the flagKeys array, it removes all keys related to the game's state.
+ */
 function resetGameData() {
     flagKeys.forEach(key => localStorage.removeItem(key));
 }
