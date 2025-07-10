@@ -1,7 +1,10 @@
 // Keep track of the current image
 let currentBg = '';
 
-// Function to set the background based on the current scene
+/**
+ * Sets the background image based on the provided image base name.
+ * The image is selected based on the current orientation (portrait or landscape).
+ */
 function setBackground(imageBaseName) {
     if (!imageBaseName) return;
 
@@ -16,7 +19,7 @@ function setBackground(imageBaseName) {
 
 // Auto-update background on screen resize
 window.addEventListener('resize', () => {
-    if (window.currentSceneName && scenes[window.currentSceneName]) {
+    if (typeof scenes !== 'undefined' && window.currentSceneName && scenes[window.currentSceneName]) {
         const backgroundKey = scenes[window.currentSceneName].background;
         setBackground(backgroundKey);
     }
