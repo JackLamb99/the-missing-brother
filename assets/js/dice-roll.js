@@ -10,23 +10,33 @@ import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.1.3/dist/dice-box.es.
 
 const diceBox = new DiceBox({
     assetPath: "/assets/dice-box/",
-    container: "#dice-box",
-    theme: "default",
-    themeColor: "#2e8555",
+    selector: "#dice-box",
     scale: 4
 });
 
 await diceBox.init();
 
-async function rollDiceCheck(targetTotal, onSuccessScene, onFailScene) {
+// Expose dice roll function globally
+window.rollDiceCheck = async (targetTotal, onSuccessScene, onFailScene) => {
+    if (!onSuccessScene || !onFailScene) {
+        console.error('Missing scene name in dice roll.');
+        return;
+    }
+
+    // Disable buttons to prevent "spam" clicking
     document.querySelectorAll('.btns').forEach(btn => btn.disabled = true);
-    const results = await diceBox.roll("2d6");
+
+    const results = await diceBox.roll('2d6');
+
     const total = results.reduce((sum, die) => sum + die.value, 0);
 
     setTimeout(() => {
         diceBox.clear();
-        loadScene(total >= targetTotal ? onSuccessScene : onFailScene);
-    }, 1500);
-}
 
-window.rollDiceCheck = rollDiceCheck;
+        if (total >= targetTotal) {
+            loadScene(onSuccessScene);
+        } else {
+            loadScene(onFailScene);
+        }
+    }, 1500);
+};
