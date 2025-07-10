@@ -82,7 +82,11 @@ function conditionalText (condition, textFirst, textSecond) {
 function rollDiceCheck (targetTotal, onSuccessScene, onFailScene){
     document.querySelectorAll('.btns').forEach(btn => btn.disabled = true);
     const total = Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
-    alert(`You rolled ${total} (need ${targetTotal}+)`);
+    if (total >= targetTotal) {
+        alert(`Dice roll successful! You rolled ${total} (need ${targetTotal}+)`);
+    } else {
+        alert(`Dice roll failed. You rolled ${total} (need ${targetTotal}+)`);
+    }
     loadScene(total >= targetTotal ? onSuccessScene : onFailScene);
 };
 
