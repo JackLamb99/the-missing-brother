@@ -8,44 +8,68 @@
 
 import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.1.3/dist/dice-box.es.min.js";
 
-// Create and configure diceBox instance
-const diceBox = new DiceBox({
-    selector: "#dice-box",
-    assetPath: "/assets/dice-box/",
-    scale: 4,
-});
+let diceBox;
+let useFallback = false;
 
-await diceBox.init();
+// Attempt to create and initialise the diceBox
+try {
+    diceBox = new DiceBox({
+        selector: "#dice-box",
+        assetPath: "/assets/dice-box/",
+        scale: 4,
+    });
 
-// Ensure the dice box canvas covers the entire viewport
-// This is necessary to ensure the dice roll animation is visible on mobile devices
-const canvas = document.querySelector(".dice-box-canvas");
-if (canvas) {
-    canvas.style.width = "100vw";
-    canvas.style.height = "100vh";
+    await diceBox.init();
+
+} catch (error) {
+    console.warn("Fantastic Dice failed to initialise. Using fallback dice logic.", error);
+    useFallback = true;
 }
 
-// Expose dice roll function globally
+/**
+ * Fallback dice rolling function that simulates a simple dice roll.
+ * This is used when the Fantastic Dice library fails to load or initialise.
+ */
+function fallbackRollDice(sides = 6, count = 2) {
+    let total = 0;
+    for (let i = 0; i < count; i++) {
+        total += Math.floor(Math.random() * sides) + 1;
+    }
+    return total;
+}
+
 window.rollDiceCheck = async (targetTotal, onSuccessScene, onFailScene) => {
     if (!onSuccessScene || !onFailScene) {
         console.error('Missing scene name in dice roll.');
         return;
     }
 
-    // Disable buttons to prevent "spam" clicking
+    // Disable choice buttons to prevent "spam" clicking
     document.querySelectorAll('.btns').forEach(btn => btn.disabled = true);
 
-    const results = await diceBox.roll('2d6');
+    let total;
 
-    const total = results.reduce((sum, die) => sum + die.value, 0);
-
-    setTimeout(() => {
-        diceBox.clear();
-
+    if (useFallback) {
+        // Simple fallback roll
+        total = fallbackRollDice();
+        alert(`You rolled ${total} (need ${targetTotal}+)`);
         if (total >= targetTotal) {
             loadScene(onSuccessScene);
         } else {
             loadScene(onFailScene);
         }
-    }, 1500);
+    } else {
+        // Animated dice roll
+        const results = await diceBox.roll('2d6');
+        total = results.reduce((sum, die) => sum + die.value, 0);
+
+        setTimeout(() => {
+            diceBox.clear();
+            if (total >= targetTotal) {
+                loadScene(onSuccessScene);
+            } else {
+                loadScene(onFailScene);
+            }
+        }, 1500);
+    }
 };
