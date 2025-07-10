@@ -43,11 +43,17 @@
         <script src="https://kit.fontawesome.com/4472c95f66.js" crossorigin="anonymous"></script>
         <!-- Custom scripts -->
         <script type="module">
-            import("./assets/js/dice-roll.esm.js").catch(() => {
-                const fallback = document.createElement("script");
-                fallback.src = "assets/js/dice-roll.fallback.js";
-                document.body.appendChild(fallback);
-            });
+            import("./assets/js/dice-roll.esm.js")
+                .then(module => {
+                    window.rollDiceCheck = module.rollDiceCheck;
+                    console.log("Fantastic Dice module loaded successfully.");
+                })
+                .catch(() => {
+                    const fallback = document.createElement("script");
+                    fallback.src = "assets/js/dice-roll.fallback.js";
+                    document.body.appendChild(fallback);
+                    console.log("Fantastic Dice module failed to load, using fallback.");
+                });
         </script>
         <script src="assets/js/background-switcher.js"></script>
         <script src="assets/js/game-utils.js"></script>

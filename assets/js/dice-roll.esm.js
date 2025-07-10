@@ -26,3 +26,21 @@ window.rollDiceCheck = async (targetTotal, onSuccessScene, onFailScene) => {
         loadScene(total >= targetTotal ? onSuccessScene : onFailScene);
     }, 1500);
 };
+
+/**
+ * Rolls two six-sided dice and checks if the total meets or exceeds the target.
+ * If successful, loads the success scene; otherwise, loads the failure scene.
+ */
+async function rollDiceCheck(targetTotal, onSuccessScene, onFailScene) {
+    document.querySelectorAll('.btns').forEach(btn => btn.disabled = true);
+
+    const results = await diceBox.roll('2d6');
+    const total = results.reduce((sum, die) => sum + die.value, 0);
+
+    setTimeout(() => {
+        diceBox.clear();
+        loadScene(total >= targetTotal ? onSuccessScene : onFailScene);
+    }, 1500);
+}
+
+export { rollDiceCheck };
