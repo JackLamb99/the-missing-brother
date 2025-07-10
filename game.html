@@ -43,13 +43,7 @@
         <!-- Font Awesome script -->
         <script src="https://kit.fontawesome.com/4472c95f66.js" crossorigin="anonymous"></script>
         <!-- Custom scripts -->
-        <script type="module">
-            import("./assets/js/dice-roll.esm.js").catch(() => {
-                const fallback = document.createElement("script");
-                fallback.src = "assets/js/dice-roll.fallback.js";
-                document.body.appendChild(fallback);
-            });
-        </script>
+        <script type="module" src="assets/js/dice-roll.js"></script>
         <script src="assets/js/background-switcher.js"></script>
         <script src="assets/js/game-utils.js"></script>
         <script src="assets/js/scenes.js"></script>

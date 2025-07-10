@@ -11,11 +11,7 @@ import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.1.3/dist/dice-box.es.
 const diceBox = new DiceBox({
     assetPath: "/assets/dice-box/",
     container: "#dice-box",
-    // origin: "https://unpkg.com/@3d-dice/dice-box@1.1.3/dist/",
     theme: "default",
-    // externalThemes: {
-    // default: "https://unpkg.com/@3d-dice/theme-default@0.1.7",
-    // },
     themeColor: "#2e8555",
     scale: 4
 });

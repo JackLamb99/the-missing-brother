@@ -97,7 +97,6 @@ h1,
     height: 100vh;
     z-index: 1000;
     pointer-events: none;
-    /* display: block; */
 }
 
 @media (max-width: 576px) {

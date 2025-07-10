@@ -74,6 +74,18 @@ function conditionalText (condition, textFirst, textSecond) {
     return condition ? textFirst : textSecond;
 }
 
+/** 
+ * Simulates a dice roll check.
+ * Rolls two six-sided dice and checks if the total meets or exceeds the target total.
+ * Displays an alert with the rolled total and whether the check was successful or not.
+ */
+function rollDiceCheck (targetTotal, onSuccessScene, onFailScene){
+    document.querySelectorAll('.btns').forEach(btn => btn.disabled = true);
+    const total = Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
+    alert(`You rolled ${total} (need ${targetTotal}+)`);
+    loadScene(total >= targetTotal ? onSuccessScene : onFailScene);
+};
+
 /**
  * Resets all game data stored in localStorage.
  * Based on the flagKeys array, it removes all keys related to the game's state.
