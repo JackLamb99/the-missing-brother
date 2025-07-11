@@ -26,10 +26,11 @@
 ## User Stories
 
 The game was developed with a player-focused approach, below are the user stories that guided the development process, along with explanations and visual examples of how each one was addressed.
+The game was developed with a player-focused approach, below are the user stories that guided the development process. Below are explanations and visual examples showing how each one was addressed.
 
-1. "As a new player first opening the website, I want easily understand where to go next, so that I can start a game without unnecessary navigation."
+1. "As a new player first opening the website, I want to easily understand where to go next, so that I can start a game without unnecessary navigation."
 
-- The landing page for the wesbite features a simple menu ui with the title of the game and three simply named buttons to start a new game, continue an existing game and navigate to a 'How to Play' page.
+- The landing page for the website features a simple menu with the title of the game and three clearly named buttons to start a new game, continue an existing game and navigate to a 'How to Play' page.
 
     <details><summary>Landing Page</summary>
 
@@ -39,7 +40,7 @@ The game was developed with a player-focused approach, below are the user storie
 
 2. "As a new player, I want to be able to understand what the game is about and how to play, so that I am as prepared as possible when starting a new game."
 
-- The site includes a detailed 'How to Play' page which gives an overview of the game, how to get started, the icons to look for in the game and what they mean.
+- The site includes a detailed 'How to Play' page which gives an overview of the game, how to get started, the icons to look out for and what they mean.
 
     <details><summary>'How to Play' Page</summary>
 
@@ -47,9 +48,9 @@ The game was developed with a player-focused approach, below are the user storie
 
     </details>
 
-3. "As a new player, I want to input my name and pronouns at the start, so that the game can personalise the story to reflect mine or my character's identity."
+3. "As a new player, I want to input my name and pronouns at the start, so that the game can personalise the story to reflect either my identity or my character's."
 
-- Upon starting a new game, players are taken to a character creation menu, allowing them to enter a name for their character and choose their pronouns, both of which will then be used throughout the game to create a more immersive experience. There is also logic in place to 'normalise' name inputs *(i.e. convert "jOhN sMiTh" to "John Smith").*
+- Upon starting a new game, players are taken to a character creation menu, allowing them to input a name and choose their pronouns, which are then used throughout the game to create a more immersive experience. There is also logic in place to 'normalise' name inputs *(i.e. convert "jOhN sMiTh" to "John Smith").*
 
     <details><summary>Character Creation</summary>
 
@@ -69,7 +70,7 @@ The game was developed with a player-focused approach, below are the user storie
 
 5. "As a player interacting with NPCs, I want to make dialogue choices, so that I can influence the outcome of scenes and learn critical information."
 
-- From the start of the game, players are given scenes with multiple dialogue option that lead to a variety of outcomes and chances to learn new information.
+- From the start of the game, players are given scenes with multiple dialogue options that lead to a variety of outcomes and chances to learn new information.
 
     <details><summary>Choice-Based Dialogue</summary>
 
@@ -151,7 +152,7 @@ The game was developed with a player-focused approach, below are the user storie
 
 ### Wireframes
 
-The follwing wireframes guided the site’s structure and layout across desktop, tablet and mobile devices.
+The following wireframes guided the site’s structure and layout across desktop, tablet and mobile devices.
 
 <details><summary>Index Page Wireframes</summary>
 
@@ -167,7 +168,7 @@ The follwing wireframes guided the site’s structure and layout across desktop,
 
 <details><summary>'How to Play' Page Wireframes</summary>
 
-![Cars Page Wireframe](docs/images/wireframe-how-to-play.png)
+!['How to Play' Page Wireframes](docs/images/wireframe-how-to-play.png)
 
 </details>
 
@@ -201,7 +202,7 @@ The site uses two fonts imported from Google Fonts to support both clarity and a
 
 ### Responsive UI
 
-Headings, text and interactive elements adapt based on screen size. Game layout is fully responsive across:
+Headings, text, and interactive elements adapt based on screen size. The game layout is fully responsive and adapts to:
 
 - Desktop
 - Tablet
@@ -239,7 +240,7 @@ Actual Result
 
 ### Functional Testing
 
-Manual testing involves going through the website to check that everything works as it should. The testing involves clicking buttons, filling out forms, and interacting with features just like a typical user would. It's especially useful for testing things like user experience, visual layout, and interactions. Manual testing is ideal for catching unexpected issues and getting a feel for how the project behaves in real-world use.
+Manual testing involves going through the website to check that everything works as it should. The testing involves clicking buttons, filling out forms, and interacting with features just like a typical user would. It's especially useful for testing things like user experience, visual layout, and interactions. Manual testing is ideal for catching unexpected issues and to evaluate how the project behaves in real-world use.
 
 The following tests were conducted:
 
@@ -297,7 +298,7 @@ Actual Result
 Test Process
 
 1. Enter a scene requiring a dice roll *(e.g. 'Execution Dock' charge/sneak encounter)*.
-2. Select a choice to roll the virtual dice and trigger the resulting alart.
+2. Select a choice to roll the virtual dice and trigger the resulting alert.
 3. Repeat until both successful and unsuccessful attempts are achieved.
 
 Expected Behaviour
@@ -306,7 +307,7 @@ Expected Behaviour
 
 Actual Result
 
-- Works as expected - Dice roll followed randomised outcome logic and results alart functioned as expected. Success or failure correctly triggered the expected following scene.
+- Works as expected - Dice roll followed randomised outcome logic and results alert functioned as expected. Success or failure correctly triggered the expected following scene.
 
 #### Locked Scene Navigation
 
@@ -411,7 +412,7 @@ No errors occurred when passing through the official [W3C CSS Validation Service
 
 #### JavaScript
 
-No errors occurred when passing though the [JS Hint Validation Service](https://jshint.com/). Any warnings about unused functions relate to functions called in seperate JavaScript files.
+No errors occurred when passing though the [JS Hint Validation Service](https://jshint.com/). Any warnings about unused functions relate to functions called in separate JavaScript files.
 
 ### Lighthouse
 
@@ -472,7 +473,7 @@ The project was developed using the VS Code desktop application and pushed to th
 The following git commands were used in the terminal throughout its creation to push code to the remote repository:
 
 - `git add [file]` or `git add .` - This command was used to add the file(s) to the staging area before they were committed.
-- `git commit –m "[commit message]"` - This command was used to commit changes to the local repository queue.
+- `git commit –m "[commit message]"` - This command was used to commit changes to the local repository.
 - `git push` - This command was used to push all committed code to the remote repository on GitHub.
 
 ### Deployment to GitHub Pages
