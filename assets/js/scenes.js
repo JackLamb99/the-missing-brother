@@ -258,7 +258,7 @@ const scenes = {
             Thomas's Flat`,
         text: () => `
             <p>Hidden beneath a loose board is a folded letter that reads:</p>
-            <p><em>"The grab at the pub outside smooth, no one saw anything. One of them started panicking, but the sedative 
+            <p><em>"The grab outside the pub went smooth, no one saw a thing. One of them started panicking, but the sedative 
             worked fast. We'll wait for the doc to reach out with who to get next."</em></p>
         `,
         choices: [
@@ -286,11 +286,11 @@ const scenes = {
                 <p>${name} wonders if there's more to find or if continuing the search is a waste of time.</p>
             `,
             `
-                <p>The water at Execution Dock is slick with oil and secrets. Once the site of public hangings for pirates 
+                <p>The water at the Execution Dock is slick with oil and secrets. Once the site of public hangings for pirates 
                 and smugglers, it's now a crumbling husk of rusted cranes, abandoned barges, and splintered decking. The fog 
                 rolls thick along the Thames, blurring the line between the river and the underworld.</p>
                 <p>${name} steps quietly onto the dock, boots creaking on old wood. Somewhere below, water laps against 
-                concrete. A seagull cries overhead, then nothing, just silence and the faint scent of diesel, blood, and 
+                concrete. A seagull cries overhead, then nothing, just silence and the faint scent of petrol, blood, and 
                 rope.</p>
                 <p>This place isn't abandoned. Not really.</p>
             `
@@ -908,8 +908,8 @@ const scenes = {
             The Tin Whistle`,
         text: ({name, pronounSubject}) => `
             <p><em>Bribe successful!</em></p>
-            <p>${name} produces the stack of notes ${pronounSubject} found in Thomas's flat and waves it under the wirey man's 
-            nose. Rowley pockets cash, leans in close and whispers:</p>
+            <p>${name} produces the stack of notes ${pronounSubject} found in Thomas's flat and waves it under the wiry man's 
+            nose. Rowley pockets the cash, leans in close and whispers:</p>
             <p>"Look, I haven't seen Thomas in a while, but I overheard something last week, some lads talking about 'trigger 
             points' or something. No idea what it meant, but I know they weren't talking about a massage. Also, there's this 
             copper, name's Detective Inspector Fallon. He's stationed down in Rotherhithe, but shows up here sometimes, and no 
@@ -929,7 +929,7 @@ const scenes = {
         header: `CHAPTER ONE
             The Tin Whistle`,
         text: () => `
-            <p><em>Bribe failed.</em></p>
+            <p><em>Bribe failed, lacking the necessary item.</em></p>
             <p>Rowley sneers and says:</p>
             <p>"You don't seem to have anything worth my time. I think it's best you don't show your face here again."</p>
         `,
@@ -948,7 +948,7 @@ const scenes = {
             The Tin Whistle`,
         text: ({name, pronounSubject}) => `
             <p><em>Threat successful!</em></p>
-            <p>${name} produces the switch-blade ${pronounSubject} took from the man at the dock and waves it under the wirey 
+            <p>${name} produces the switch-blade ${pronounSubject} took from the man at the dock and waves it under the wiry 
             man's nose. Rowley's eyes widen in fear as he stutters over his words:</p>
             <p>"Alright alright, no need for all that. I haven't seen Thomas in a while, but I overheard something last week, 
             some lads talking about 'trigger points' or something. No idea what it meant, but I know they weren't talking 
@@ -968,8 +968,8 @@ const scenes = {
         background: 'pub',
         header: `GAME OVER!`,
         text: ({name}) => `
-            <p><em>Bribe failed.</em></p>
-            <p>${name} grabs the collar of Rowley's coat and tries to sound as treatening as possible:</p>
+            <p><em>Threat failed, lacking the necessary item.</em></p>
+            <p>${name} grabs the collar of Rowley's coat and tries to sound as threatening as possible:</p>
             <p>"Tell me what you know about Thomas Blackwood, or else."</p>
             <p>Rowley narrows his eyes and slams his pint glass into ${name}'s face, growling:</p>
             <p>"You've got a big mouth for someone so empty-handed."</p>
