@@ -8,13 +8,11 @@
 function loadScene(sceneName) {
     // Reset scroll position to top
     window.scrollTo(0, 0);
-    
+
     // Call refreshFlags function before rendering scene
     refreshFlags();
 
-    // Log current flag states for debugging (remove later)
-    logFlagStates();
-
+    // Check if the scene exists
     const scene = scenes[sceneName];
         if (!scene) {
             console.error(`Scene "${sceneName}" not found.`);

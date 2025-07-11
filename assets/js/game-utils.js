@@ -117,12 +117,3 @@ function rollDiceCheck (targetTotal, onSuccessScene, onFailScene){
 function resetGameData() {
     flagKeys.forEach(key => localStorage.removeItem(key));
 }
-
-// Temporary, remove later
-// Log current flag states to console
-function logFlagStates() {
-    console.log('--- Current Flag States ---');
-    flagKeys.forEach(key => {
-        console.log(`${key}:`, window.flags[key]);
-    });
-}
