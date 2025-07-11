@@ -424,4 +424,22 @@ Lighthouse was run in Google Chrome DevTools for all pages to assess Performance
 
 ### Bug Fixes
 
-During development, I initially planned to use an external library to handle the dice roll mechanic. This would have provided both the logic and a matching visual animation to enhance the experience. While the system worked correctly on desktop during testing, I discovered that it failed to function on mobile devices once deployed. I explored multiple fixes, including implementing custom fallback logic in case the external library couldn’t load, but couldn’t get both systems to work together reliably. Since the issue was game-breaking on mobile and the animation was purely cosmetic, I made the decision to remove the external mechanic entirely and rely on the custom JavaScript dice roll logic instead.
+During development, I initially planned to use an external library to handle the dice roll mechanic. This would have provided both the logic and a matching visual animation to enhance the experience. While the system worked correctly on desktop during testing, I discovered that it failed to function on mobile devices once deployed. I explored multiple fixes, including implementing custom fallback logic in case the external library couldn't load, but couldn't get both systems to work together reliably. Since the issue was game-breaking on mobile and the animation was purely cosmetic, I made the decision to remove the external mechanic entirely and rely on the custom JavaScript dice roll logic instead.
+
+## Technologies
+
+The following technologies were used in the creation of the website:
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - The structure of the website was built using semantic HTML.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Custom CSS was used to style all pages and ensure consistent design.
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Custom JavaScript was used for interactive logic and game mechanics
+- [Bootstrap 5](https://getbootstrap.com/) - Used for responsive layout, spacing and modals.
+- [Visual Studio Code](https://code.visualstudio.com/) - The project was developed using the VS Code desktop application.
+- [GitHub](https://github.com/) - The source code is hosted on GitHub and deployed using GitHub Pages.
+- Git - Used for version control, including commits and pushing code throughout the development process.
+- [Google Fonts](https://fonts.google.com/) - Used to import the 'Special Elite' and 'Lato' fonts for headings and body text.
+- [Favicon.io](https://favicon.io/) - Used to convert and import a custom image as a favicon.
+- [Font Awesome](https://fontawesome.com/) - Used to find and import icons used throughout the website.
+- [Balsamiq](https://balsamiq.com/wireframes/desktop/) - Wireframes were created using the Balsamiq desktop application.
+- [Free Convert](https://www.freeconvert.com/) - Used to convert all images to WEBP format for improved compression without quality loss.
+- [Night Cafe](https://creator.nightcafe.studio/) - Used to create the custom background images based on scene descriptions.
