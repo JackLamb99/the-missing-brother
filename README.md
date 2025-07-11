@@ -422,7 +422,7 @@ Lighthouse was run in Google Chrome DevTools for all pages to assess Performance
 
 </details>
 
-### Bug Fixes
+### Bugs
 
 During development, I initially planned to use an external library to handle the dice roll mechanic. This would have provided both the logic and a matching visual animation to enhance the experience. While the system worked correctly on desktop during testing, I discovered that it failed to function on mobile devices once deployed. I explored multiple fixes, including implementing custom fallback logic in case the external library couldn't load, but couldn't get both systems to work together reliably. Since the issue was game-breaking on mobile and the animation was purely cosmetic, I made the decision to remove the external mechanic entirely and rely on the custom JavaScript dice roll logic instead.
 
@@ -479,3 +479,19 @@ The live link can be found here - https://jacklamb99.github.io/the-missing-broth
 5. In the terminal, type the following command, replacing copied-url with the one you copied:
 `git clone copied-url`
 <br>*Note: Git must be installed on your system for this step to work. You can download it [here](https://git-scm.com/downloads).*
+
+## Future Developments
+
+While 'The Missing Brother' currently includes a fully playable Prologue and Chapter One, there are several features and improvements that could be added in future updates to expand and enhance the experience:
+
+### Additional Chapters
+
+The full narrative structure would include Chapters 2, 3, and a finale (Chapter 4), each introducing new scenes, locations, and deeper layers of the central conspiracy. Future development could involve implementing these chapters with the same attention to branching logic, item collection, and decision consequences already seen in Chapter One.
+
+### External Dice Roll Mechanic
+
+As previously mentioned in the [bugs section](#bugs), an external library was originally used to animate dice rolls with a visual result, but it caused game-breaking issues on mobile devices. A future development could be to resolve this compatibility problem, either by fixing the integration or replacing it with a lightweight, mobile-friendly alternative, so players can enjoy both the functionality and immersive animation across all devices.
+
+### Audio & Sound Effects
+
+To further immerse players in the noir atmosphere, future versions of the game could include background music, ambient sounds, and audio cues *(e.g. rain, footsteps, dice rolls)*. These additions would help reinforce mood, tension, and setting during key moments of gameplay.
