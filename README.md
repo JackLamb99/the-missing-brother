@@ -1,6 +1,6 @@
 # The Missing Brother
 
-**The Missing Brother** is a narrative-driven, noir-style detective game set in 1950s London. Built entirely in HTML, CSS, and JavaScript, the game lets players take on the role of a private investigator. Through branching narratives, item collection, clue-based decision-making, and dice-roll risk systems, players uncover a dark conspiracy. View the live site [here](https://jacklamb99.github.io/the-missing-brother/index.html).
+**'The Missing Brother'** is a narrative-driven, noir-style detective game set in 1950s London. Built entirely in HTML, CSS, and JavaScript, the game lets players take on the role of a private investigator. Through branching narratives, item collection, clue-based decision-making, and dice-roll risk systems, players uncover a dark conspiracy. View the live site [here](https://jacklamb99.github.io/the-missing-brother/index.html).
 
 ![Mockup](docs/images/mockup.png)
 
@@ -187,3 +187,241 @@ Headings, text and interactive elements adapt based on screen size. Game layout 
 - Desktop
 - Tablet
 - Mobile
+
+## Testing
+
+### Compatibility and Responsiveness
+
+All pages were tested in Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari to ensure full responsiveness and compatibility with a range of screen sizes, including mobile and ultra-wide monitors. Tests were carried out in accordance with [WCAG 2.1 Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html) standards.
+
+Devices tested
+
+- 1920×1080 desktop monitor
+- Google Chromebook laptop
+- Apple iPad Air tablet
+- Samsung Galaxy S20 mobile
+- Apple iPhone 12 mobile
+
+Steps to Test
+
+1. Open the browser and navigate to 'The Missing Brother' website.
+2. Open developer tools (right-click then Inspect).
+3. Set the device to "Responsive" with width starting at 320px.
+4. Zoom out to 50% to view full scaling on larger resolutions.
+5. Drag the width toggle to test all breakpoints up to ultra-wide (2560px+).
+
+Expected Behaviour
+
+- No horizontal scroll, no overlapping elements, and all content remains readable and visually balanced.
+
+Actual Result
+
+- Worked as expected - The website responded as expected across all tested screen sizes and devices. No layout issues or horizontal scrollbars were detected.
+
+### Functional Testing
+
+Manual testing involves going through the website to check that everything works as it should. The testing involves clicking buttons, filling out forms, and interacting with features just like a typical user would. It's especially useful for testing things like user experience, visual layout, and interactions. Manual testing is ideal for catching unexpected issues and getting a feel for how the project behaves in real-world use.
+
+The following tests were conducted:
+
+#### Character Creation Input
+
+Test Process
+
+1. Load the character creation screen.
+2. Enter a name with with studly caps *(e.g. "jOhN sMiTh")*.
+3. Select pronouns *(e.g. "Masculine")* to start the game.
+4. Proceed through the scenes and read through the narratives.
+
+Expected Behaviour
+
+- The player's 'normalised' name *(e.g. "John Smith")* and chosen pronouns should dynamically populate throughout all game narratives.
+
+Actual Result
+
+- Works as expected - Name and pronoun variables correctly updated in real time across all subsequent scenes, dialogue boxes, and narration.
+
+#### Flag Setting
+
+Test Process
+
+1. Trigger specific choice interactions that amend a flag to true *(e.g. an item, clue or evidence)*.
+2. Open the console and inspect the relevant boolean variables *(e.g. `hasKnifeItem = true`)*.
+
+Expected Behaviour
+
+- Associated flags should change from null to true in the console upon selection of the choice. These flags should impact available options in future scenes.
+
+Actual Result
+
+- Works as expected - Flags correctly set in the background. Conditional checks against these flags controlled future content as expected.
+
+#### Choices Requiring Items
+
+Test Process
+
+1. Collect 'bank notes' and 'knife' items.
+2. Proceed to the `pubChoiceRowley` scene.
+3. Choose the 'bribe him' and 'threaten him' options.
+4. Repeat steps 2 and 3 without collecting required items.
+
+Expected Behaviour
+
+- If required items have been collected, branches should follow the success logic. If required items haven't been collected, branches should follow failure logic.
+
+Actual Result
+
+- Works as expected - Item flags correctly influenced options and led to resulting scenes.
+
+#### Dice Roll Logic
+
+Test Process
+
+1. Enter a scene requiring a dice roll *(e.g. 'Execution Dock' charge/sneak encounter)*.
+2. Select a choice to roll the virtual dice and trigger the resulting alart.
+3. Repeat until both successful and unsuccessful attempts are achieved.
+
+Expected Behaviour
+
+- The dice roll should generate a number between 1–12. Correct logic should determine success/failure based on the target threshold *(e.g., ≥8 = success)*.
+
+Actual Result
+
+- Works as expected - Dice roll followed randomised outcome logic and results alart functioned as expected. Success or failure correctly triggered the expected following scene.
+
+#### Locked Scene Navigation
+
+Test Process
+
+1. Select an option to leave a scene or location *(e.g. 'Leave the flat')*.
+2. Attempt to return to the same scene.
+
+Expected Behaviour
+
+- Visited scene flag should be amended to true in the console *(e.g. `visitedFlat = true`)* and the option to return to that scene should no longer be visible, preventing backtracking by locking each visited location.
+
+Actual Result
+
+- Works as expected - Scene-visited flags were amended to true as expected, locking the scene and preventing re-entry.
+
+#### Scene Background Rendering
+
+Test Process
+
+1. Visit each scene and observe the background image loaded.
+2. Resize screen and rotate device to test portrait/landscape swaps.
+
+Expected Behaviour
+
+- Each scene should load the correct background image (landscape or portrait version).
+
+Actual Result
+
+- Works as expected - Images loaded correctly across all scenes. Portrait versions activated on narrower viewports.
+
+#### How to Play Page
+
+Test Process
+
+1. Click the 'How to Play' button from the main menu to navigate to the 'How to Play' page.
+2. Read through instructional content.
+3. Click the 'Back to Main Menu' button at the bottom of the page to navigate back to the landing page.
+
+Expected Behaviour
+
+- Buttons should navigate to the correct pages without error. Instructions should be clearly visible and styled consistently.
+
+Actual Result
+
+- Works as expected - Navigation buttons worked without issue and content displayed correctly and clearly.
+
+#### 404 Page
+
+Test Process
+
+1. Enter an invalid url into the browser (e.g. https://jacklamb99.github.io/the-missing-brother/what)
+2. Click the 'Back to Main Menu' button at the bottom of the page to navigate back to the landing page.
+
+Expected Behaviour
+
+- Should be navigated to the custom 404.html page and the 'Back to Main Menu' button should navigate back to the landing page.
+
+Actual Result
+
+- Works as expected - Displayed custom 404 page and navigation buttons worked without issue
+
+### Validation
+
+#### HTML
+
+No errors occurred when passing each page through the official [W3C Markup Validation Service](https://validator.w3.org/). A warning was shown for an empty heading on the game.html page, but this is expected as the heading is populated by the background scene-loading logic.
+
+<details><summary>Index Page Validator Results</summary>
+
+![Index Page Validator Results](docs/images/validation-index.png)
+
+</details>
+
+<details><summary>Game Page Validator Results</summary>
+
+![About Page Validator Results](docs/images/validation-game.png)
+
+</details>
+
+<details><summary>'How to Play' Page Validator Results</summary>
+
+![Cars Page Validator Results](docs/images/validation-how-to-play.png)
+
+</details>
+
+<details><summary>404 Page Validator Results</summary>
+
+![404 Page Validator Results](docs/images/validation-404.png)
+
+</details>
+
+#### CSS
+
+No errors occurred when passing through the official [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+<details><summary>CSS Validator Results</summary>
+
+![CSS Validator Results](docs/images/validation-css.png)
+
+</details>
+
+#### JavaScript
+
+No errors occurred when passing though the [JS Hint Validation Service](https://jshint.com/). Any warnings about unused functions relate to functions called in seperate JavaScript files.
+
+### Lighthouse
+
+Lighthouse was run in Google Chrome DevTools for all pages to assess Performance, Accessibility, Best Practices, and SEO.
+
+<details><summary>Index Page Lighthouse Results</summary>
+
+![Index Page Lighthouse Results](docs/images/lighthouse-index.png)
+
+</details>
+
+<details><summary>Game Page Lighthouse Results</summary>
+
+![About Page Lighthouse Results](docs/images/lighthouse-game.png)
+
+</details>
+
+<details><summary>'How to Play' Page Lighthouse Results</summary>
+
+![Cars Page Lighthouse Results](docs/images/lighthouse-how-to-play.png)
+
+</details>
+
+<details><summary>404 Page Validator Lighthouse</summary>
+
+![404 Page Lighthouse Results](docs/images/lighthouse-404.png)
+
+</details>
+
+### Bug Fixes
+
+During development, I initially planned to use an external library to handle the dice roll mechanic. This would have provided both the logic and a matching visual animation to enhance the experience. While the system worked correctly on desktop during testing, I discovered that it failed to function on mobile devices once deployed. I explored multiple fixes, including implementing custom fallback logic in case the external library couldn’t load, but couldn’t get both systems to work together reliably. Since the issue was game-breaking on mobile and the animation was purely cosmetic, I made the decision to remove the external mechanic entirely and rely on the custom JavaScript dice roll logic instead.
