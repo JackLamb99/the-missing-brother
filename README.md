@@ -1,6 +1,6 @@
 # The Missing Brother
 
-**The Missing Brother** is a narrative-driven, noir-style detective game set in 1950s London. Built entirely in HTML, CSS, and JavaScript, the game lets players take on the role of a private investigator. Through branching narratives, item collection, clue-based decision-making, and dice-roll risk systems, players uncover a dark conspiracy. View the live site [here](https://jacklamb99.github.io/the-missing-brother/).
+**The Missing Brother** is a narrative-driven, noir-style detective game set in 1950s London. Built entirely in HTML, CSS, and JavaScript, the game lets players take on the role of a private investigator. Through branching narratives, item collection, clue-based decision-making, and dice-roll risk systems, players uncover a dark conspiracy. View the live site [here](https://jacklamb99.github.io/the-missing-brother/index.html).
 
 ![Mockup](docs/images/mockup.png)
 
@@ -14,7 +14,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Landing Page</summary>
 
-    ![Hero Image](docs/images/feature-landing.png)
+    ![Landing Page](docs/images/feature-landing.png)
 
     </details>
 
@@ -24,7 +24,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>'How to Play' Page</summary>
 
-    ![Hero Image](docs/images/feature-how-to-play.png)
+    !['How to Play' Page](docs/images/feature-how-to-play.png)
 
     </details>
 
@@ -34,7 +34,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Character Creation</summary>
 
-    ![Hero Image](docs/images/feature-character.png)
+    ![Character Creation](docs/images/feature-character.png)
 
     </details>
 
@@ -44,7 +44,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Varied Scenes</summary>
 
-    ![Hero Image](docs/images/feature-scenes.png)
+    ![Varied Scenes](docs/images/feature-scenes.png)
 
     </details>
 
@@ -54,7 +54,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Choice-Based Dialogue</summary>
 
-    ![Hero Image](docs/images/feature-choice-based.png)
+    ![Choice-Based Dialogue](docs/images/feature-choice-based.png)
 
     </details>
 
@@ -64,7 +64,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Inventory System</summary>
 
-    ![Hero Image](docs/images/feature-inventory.png)
+    ![Inventory System](docs/images/feature-inventory.png)
 
     </details>
 
@@ -74,7 +74,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Branching Narratives</summary>
 
-    ![Hero Image](docs/images/feature-branching.png)
+    ![Branching Narratives](docs/images/feature-branching.png)
 
     </details>
 
@@ -84,7 +84,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Clue and Evidence Tracking</summary>
 
-    ![Hero Image](docs/images/feature-clue.png)
+    ![Clue and Evidence Tracking](docs/images/feature-clue.png)
 
     </details>
 
@@ -94,7 +94,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Dice Roll Mechanics</summary>
 
-    ![Hero Image](docs/images/feature-dice.png)
+    ![Dice Roll Mechanics](docs/images/feature-dice.png)
 
     </details>
 
@@ -104,7 +104,7 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Scene Locking</summary>
 
-    ![Hero Image](docs/images/feature-scene-locking.png)
+    ![Scene Locking](docs/images/feature-scene-locking.png)
 
     </details>
 
@@ -112,9 +112,9 @@ The game was developed with a player-focused approach, below are the user storie
 
 - The game incorporates multiple unique backgrounds based on the location in which the scene takes place, allowing the players to immerse themselves in the theme of the game while they progress through the narrative. Additional logic is in place to change the background dynamically based on the orientation of their chosen device, meaning the most appropriately sized image is always used.
 
-    <details><summary>Scene Background Visuals</summary>
+    <details><summary>Background Example</summary>
 
-    ![Hero Image](docs/images/feature-example-bg.png)
+    ![Background Example](docs/images/feature-example-bg.png)
 
     </details>
 
@@ -124,6 +124,66 @@ The game was developed with a player-focused approach, below are the user storie
 
     <details><summary>Continued Progress</summary>
 
-    ![Hero Image](docs/images/feature-continue.png)
+    ![Continued Progress](docs/images/feature-continue.png)
 
     </details>
+
+## Design
+
+### Wireframes
+
+The follwing wireframes guided the site’s structure and layout across desktop, tablet and mobile devices.
+
+<details><summary>Index Page Wireframes</summary>
+
+![Index Page Wireframes](docs/images/wireframe-index.png)
+
+</details>
+
+<details><summary>Game Page Wireframes</summary>
+
+![Game Page Wireframes](docs/images/wireframe-game.png)
+
+</details>
+
+<details><summary>'How to Play' Page Wireframes</summary>
+
+![Cars Page Wireframe](docs/images/wireframe-how-to-play.png)
+
+</details>
+
+### Colour Palette
+
+The colour scheme draws inspiration from vintage noir cinema, 1950s pulp fiction, and cold war-era detective thrillers. It uses deep, muted tones and strong contrast to reinforce the dark, moody atmosphere of a mystery set in post-war London. The palette is consistent with the game's themes of mystery and tension, enhancing immersion at every stage.
+
+![Colour Palette](docs/images/colour-palette.png)
+
+- **#302442** - Used for buttons, this deep purple-grey evokes a sense of secrecy and subdued tension, aligning with the game’s noir aesthetic.
+- **#563457** - A richer, more saturated variation used for button hover states, giving the user clear feedback and drawing attention to interactive elements.
+- **#522D17** - A dark brown-red used for headings, reminiscent of classic 'file folders' or tobacco, both classic staples of noir imagery.
+- **#0B0201** - A near-black tone but a hint of brown used for body text, ensuring high readability while visually complimenting the headings.
+
+**Contrast and Legibility** - All game headers, text and buttons are set over a light, semi-transparent overlay, allowing background visuals to be seen but not interfere with text legibility. Meeting WCAG contrast guidelines to support accessibility.
+
+**Consistency** - The colour palette is applied across buttons, text, and backgrounds to maintain visual cohesion and narrative tone.
+
+**Focus** - Accent tones are used for hover states to help guide player attention without breaking immersion.
+
+### Background Imagery
+
+The scene backgrounds complement the core palette with desaturated hues, low lighting, and muted contrasts - often depicting fog, rain, or artificial light. These visual themes reinforce a feeling of urban isolation and moral ambiguity consistent with 1950s noir.
+
+### Typography
+
+The site uses two fonts imported from Google Fonts to support both clarity and aesthetic impact:
+
+- **Special Elite** for headers (typewriter/pulp look)
+- **Lato** for readable body text
+
+### Responsive UI
+
+Headings, text and interactive elements adapt based on screen size. Game layout is fully responsive across:
+
+- Desktop
+- Tablet
+- Mobile
