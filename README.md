@@ -4,6 +4,25 @@
 
 ![Mockup](docs/images/mockup.png)
 
+## Table of Contents
+
+- [User Stories](#user-stories)
+- [Design](#design)
+    - [Wireframes](#wireframes)
+    - [Colour Palette](#colour-palette)
+    - [Imagery](#imagery)
+    - [Typography](#typography)
+    - [Responsive UI](#responsive-ui)
+- [Testing](#testing)
+    - [Compatibility and Responsiveness](#compatibility-and-responsiveness)
+    - [Functional Testing](#functional-testing)
+    - [Validation](#validation)
+    - [Lighthouse](#lighthouse)
+    - [Bugs](#bugs)
+- [Technologies](#technologies)
+- [Deployment](#deployment)
+- [Future Developments](#future-developments)
+
 ## User Stories
 
 The game was developed with a player-focused approach, below are the user stories that guided the development process, along with explanations and visual examples of how each one was addressed.
@@ -169,9 +188,9 @@ The colour scheme draws inspiration from vintage noir cinema, 1950s pulp fiction
 
 **Focus** - Accent tones are used for hover states to help guide player attention without breaking immersion.
 
-### Background Imagery
+### Imagery
 
-The scene backgrounds complement the core palette with desaturated hues, low lighting, and muted contrasts - often depicting fog, rain, or artificial light. These visual themes reinforce a feeling of urban isolation and moral ambiguity consistent with 1950s noir.
+The scene background images complement the core palette with desaturated hues, low lighting, and muted contrasts - often depicting fog, rain, or artificial light. These visual themes reinforce a feeling of urban isolation and moral ambiguity consistent with 1950s noir.
 
 ### Typography
 
@@ -495,3 +514,5 @@ As previously mentioned in the [bugs section](#bugs), an external library was or
 ### Audio & Sound Effects
 
 To further immerse players in the noir atmosphere, future versions of the game could include background music, ambient sounds, and audio cues *(e.g. rain, footsteps, dice rolls)*. These additions would help reinforce mood, tension, and setting during key moments of gameplay.
+
+[Back to top](#the-missing-brother)
